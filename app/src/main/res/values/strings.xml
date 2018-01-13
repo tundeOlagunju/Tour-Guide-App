@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Lagos Tour Guide</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="category_hotels">Hotels</string>
+    <string name="category_museum">Arts </string>
+    <string name="category_amusement">Parks</string>
+    <string name="category_beaches">Beaches</string>
+
+    <string name="picture_transition_name">profile</string>
+    <string name="name_transition_name">name</string>
+    <string name="address_transition_name">address</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
