@@ -20,17 +20,19 @@ private Toolbar mToolbar;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        ViewPager viewPager = (ViewPager)findViewById(R.id.viewpager);
-
-       CategoryAdapter adapter = new CategoryAdapter(this,getSupportFragmentManager());
-
-        viewPager.setAdapter(adapter);
-
-         mToolbar = (Toolbar)findViewById(R.id.toolbar);
+        mToolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
 
+        ViewPager viewPager = (ViewPager)findViewById(R.id.viewpager);
+       CategoryAdapter adapter = new CategoryAdapter(this,getSupportFragmentManager());
+
+        //Hook up ViewPager with the PagerAdapter
+        viewPager.setAdapter(adapter);
+
+
+
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        //Hook up TabLayout with the ViewPager
         tabLayout.setupWithViewPager(viewPager);
     }
 }

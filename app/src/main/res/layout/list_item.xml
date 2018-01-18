@@ -31,7 +31,6 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0">
                 <TextView
-                    android:transitionName="@string/name_transition_name"
                     android:id="@+id/name_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -41,7 +40,6 @@
                     android:textColor="@android:color/white"
                     android:textSize="18sp" />
                 <TextView
-                    android:transitionName="@string/address_transition_name"
                     android:id="@+id/address_text"
                     android:layout_below="@+id/name_text"
                     android:layout_width="match_parent"

@@ -27,6 +27,12 @@
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
+            app:tabGravity="fill"
+            app:tabIndicatorHeight="3dp"
+            app:tabTextAppearance="@style/TabLayoutTextStyle"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="#ffffff"
+            app:tabIndicatorColor="#ffffff"
             android:layout_height="wrap_content" />
 
     </android.support.design.widget.AppBarLayout>

@@ -34,6 +34,7 @@ public class AmusementFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.word_list,container,false);
 
+        // Create a list of words
         final  List<Word> words = new ArrayList<>();
 
 
@@ -54,21 +55,31 @@ public class AmusementFragment extends Fragment {
 
 
 
+        //create a custom  adapter whose data set is a list of words
         WordAdapter wordAdapter = new WordAdapter(getActivity(),words,R.color.color_amusement);
 
+        //find the list view by its id
         ListView listView = (ListView) rootView.findViewById(R.id.list);
 
+        //set the adapter on the list view
         listView.setAdapter(wordAdapter);
 
+        //Hide or show tool bar when scrolling with another view .Coordinator layout
+        //does not work with list or grid view by default.Nested Scrolling needs to be enabled
+        //on them.
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+
+            // this notifies the coordinator layout when the app bar or list view should be scrolling
             listView.setNestedScrollingEnabled(true);
 
 
 
+        //set a clickListener on each item in the list view
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                             @Override
                                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                                                // Get the  Word object at the given position the user clicked on
                                                 Word word = words.get(position);
 
                                                 int picture = word.getImgResourceId();
@@ -124,6 +135,7 @@ public class AmusementFragment extends Fragment {
                                                 intent.putExtra("phoneNumber",phoneNumber);
                                                 intent.putExtra("description",description);
 
+                                                //start DetailsActivity passing on the corresponding information
                                                 startActivity(intent, options.toBundle());
                                             }
 

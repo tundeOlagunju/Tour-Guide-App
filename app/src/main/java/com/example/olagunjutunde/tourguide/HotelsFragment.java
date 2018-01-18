@@ -33,12 +33,14 @@ public class HotelsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
        View rootView = inflater.inflate(R.layout.word_list,container,false);
 
+        // Create a list of words
       final  List<Word> words = new ArrayList<>();
 
 
-   words.add( new Word("FEDERAL PLACE HOTEL AND CASINO","6-8, Ahmadu Bellow Way, Victoria Island, Victoria Island, Lagos ,Nigeria. "
+   words.add( new Word("FEDERAL PLACE HOTEL ","6-8, Ahmadu Bellow Way, Victoria Island, Victoria Island, Lagos ,Nigeria. "
            ,R.drawable.federal_place_hotel));
 
         words.add( new Word("THE GEORGE","30 Lugard Avenue, Ikoyi, Lagos, Nigeria"
@@ -57,25 +59,39 @@ public class HotelsFragment extends Fragment {
         words.add( new Word("DE SANTOS HOTEL","7 Shasha Road, Akowonjo Roundabout, Lagos, Nigeria,",R.drawable.de_santos));
 
 
+        //create a custom  adapter whose data set is a list of words
         WordAdapter wordAdapter = new WordAdapter(getActivity(),words,R.color.color_hotels);
 
+        //find the list view by its id
         ListView listView = (ListView) rootView.findViewById(R.id.list);
 
+        //set the adapter on the list view
         listView.setAdapter(wordAdapter);
 
+
+
+        //Hide or show tool bar when scrolling with another view .Coordinator layout
+        //does not work with list or grid view by default.Nested Scrolling needs to be enabled
+        //on them.
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            // this notifies the coordinator layout when the app bar or list view should be scrolling
             listView.setNestedScrollingEnabled(true);
 
 
 
+        //set a clickListener on each item in the list view
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                // Get the  Word object at the given position the user clicked on
                 Word word = words.get(position);
 
+                //get the image at that position
                 int picture = word.getImgResourceId();
+                //get the name at that position
                 String name = word.getName();
+                //get the address at the current position
                 String address = word.getAddress();
 
                 Intent intent = new Intent(getActivity(), DetailsActivity.class);
@@ -184,6 +200,7 @@ public class HotelsFragment extends Fragment {
                 intent.putExtra("description",description);
 
 
+                //start the details activity passing on the corresponding information for each position
                 startActivity(intent, options.toBundle());
             }
 

@@ -17,24 +17,31 @@ private Context mContext;
         mContext = context;
     }
 
+    /**
+     * Return the total number of pages.
+     */
     @Override
-    public int getCount() {
-        return 4;
+    public int getCount() {// view pager asks the fragment pager adapter for the number fragments
+
+        return 4;//adapter returns  4
     }
 
     @Override
     public Fragment getItem(int position) { // //the view pager asks the adapter for each fragment at each position
         if (position == 0)
 
-        return new HotelsFragment();
+        return new HotelsFragment();// adapter  returns fragment at position 0
        if (position == 1)
-            return new MuseumFragment();// adapter  returns fragment at position 3
+            return new MuseumFragment();// adapter  returns fragment at position 1
         if (position == 2)
-            return new AmusementFragment();
+            return new AmusementFragment();// adapter  returns fragment at position 2
         else
-            return  new BarBeachesFragment();
+            return  new BarBeachesFragment();// adapter  returns fragment at position 3
     }
 
+
+    // CharSequence...a title for the requested page
+    // position...the position of the title requested
     @Override
     public CharSequence getPageTitle(int position) {
         if (position == 0) {
